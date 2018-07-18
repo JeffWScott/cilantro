@@ -55,6 +55,7 @@ SMART_CONTRACT_TESTS = [
 I think OVERLAY_TESTS arent working on CI b/c dat boi falcon is trying to open up ports and stuff on a CI container 
 ... so I think we need to run those tests as integration tests inside a docker container
 """
+# All unit tests
 UNIT_TESTS = [
     DB_TESTS,
     SMART_CONTRACT_TESTS,
@@ -64,7 +65,6 @@ UNIT_TESTS = [
     CONSTANTS_TESTS,
     UTIL_TESTS,
 ]
-# All unit tests
 
 """
 ------------------------------------------------------------------------------------------------------------------
@@ -72,12 +72,17 @@ UNIT_TESTS = [
 ------------------------------------------------------------------------------------------------------------------
 """
 
+TRANSPORT_INTEGRATION_TESTS = [
+    'tests.protocol.transport'
+]
+
 NODE_INTEGRATION_TESTS = [
     'tests.nodes.integration'
 ]
 
 # All integration tests
 INTEGRATION_TESTS = [
+    TRANSPORT_INTEGRATION_TESTS,
     NODE_INTEGRATION_TESTS
 ]
 
